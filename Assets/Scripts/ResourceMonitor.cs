@@ -4,38 +4,19 @@ using UnityEngine;
 public class ResourceMonitor : MonoBehaviour
 {
 	[Header("Settings")]
-	[SerializeField] private int maxDataPoints = 100;
-	[SerializeField] private int minDataPoints = 0;
 	[SerializeField] private float updateInterval = 0.5f;
 
 	[SerializeField] private TMP_Text cpuText;
-	private float[] cpuUsageData;
+	[SerializeField] private TMP_Text networkText;
+	[SerializeField] private TMP_Text memoryText;
+	[SerializeField] private TMP_Text diskText;
 	private float timer;
+
+	public ResourceMonitorScriptableObj resources;
 
 	private void Start()
 	{
-		cpuUsageData = new float[maxDataPoints];
-		// Инициализация массива нулями
-		for (int i = 0; i < maxDataPoints; i++)
-		{
-			cpuUsageData[i] = 0f;
-		}
-	}
-
-	
-	private void UpdateCPUData()
-	{
-		// Сдвигаем данные влево
-		for (int i = 0; i < maxDataPoints - 1; i++)
-		{
-			cpuUsageData[i] = cpuUsageData[i + 1];
-		}
-
-		// Добавляем новое случайное значение (имитация работы CPU)
-		cpuUsageData[maxDataPoints - 1] = Random.Range(minDataPoints, maxDataPoints);
-
-		// Обновляем текст
-		cpuText.text = $"{cpuUsageData[maxDataPoints - 1]:F1}%";
+		resources.init();
 	}
 
 	private void Update()
@@ -45,7 +26,10 @@ public class ResourceMonitor : MonoBehaviour
 		if (timer >= updateInterval)
 		{
 			timer = 0f;
-			UpdateCPUData();
+			cpuText.text = $"{resources.cpuResource(1,6):F1}%";
+			networkText.text = $"{resources.networkResource(0,8):F1}%";
+			memoryText.text = $"{resources.memoryResource(1, 10):F1}%";
+			diskText.text = $"{resources.diskResource(1, 5):F1}%";
 		}
 	}
 }

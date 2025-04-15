@@ -23,6 +23,7 @@ public class AppManager : MonoBehaviour
 
 	public void DeleteFromTaskbar(string Name)
 	{
-		GameObject.Destroy(transform.Find(Name));
+		Destroy(tabsBar.transform.Find(Name).gameObject);
+
 	}
 }
