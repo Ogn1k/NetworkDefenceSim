@@ -72,3 +72,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+/[Aa]ssets/[Ff]igma/
+/[Aa]ssets/[Ff]igma[Ii]mporter/
+
+/[Aa]ssets/[Ff]igma/*
+/[Aa]ssets/[Ff]igmaImporter/*
+/[Aa]ssets/[Ff]igma*.*

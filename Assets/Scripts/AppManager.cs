@@ -9,6 +9,8 @@ public class AppManager : MonoBehaviour
 	public GameObject tabsBar;
     public AppManager instance;
 
+	public OpenedProcesses openedProcesses;
+
 	private void Start()
 	{
 		instance = this;
@@ -19,11 +21,15 @@ public class AppManager : MonoBehaviour
 		GameObject tab = Instantiate(tabPrefab, tabsBar.transform);
 		tab.name = Name;
 		tab.transform.Find("Name").GetComponent<TMP_Text>().text = Name;
-    }
+		Resource resource = new Resource(tab,1,1,1,1);
+		openedProcesses.AddProcess(resource);
+
+	}
 
 	public void DeleteFromTaskbar(string Name)
 	{
-		Destroy(tabsBar.transform.Find(Name).gameObject);
-
+		GameObject tab = tabsBar.transform.Find(Name).gameObject;
+		Destroy(tab);
+		openedProcesses.RmProcess(new Resource(tab, 1, 1, 1, 1));
 	}
 }

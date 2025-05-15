@@ -1,0 +1,44 @@
+From: Ogn1k ' <2moestro2@gmail.com>
+To: "2moestro2@gmail.com" <2moestro2@gmail.com>
+Subject: Test email title
+Thread-Topic: Test email title
+Thread-Index: AQHbwLMKlPdzP537OEqWbwr2AxwFbQ==
+X-MS-Exchange-MessageSentRepresentingType: 1
+Date: Fri, 9 May 2025 07:21:54 +0000
+Message-ID:
+	<DU2PR05MB10686CE4BF46D312709A21CD5A38AA@DU2PR05MB10686.eurprd05.prod.outlook.com>
+Content-Language: ru-RU
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+msip_labels:
+Content-Type: multipart/alternative;
+	boundary="_000_DU2PR05MB10686CE4BF46D312709A21CD5A38AADU2PR05MB10686eu_"
+MIME-Version: 1.0
+
+--_000_DU2PR05MB10686CE4BF46D312709A21CD5A38AADU2PR05MB10686eu_
+Content-Type: text/plain; charset="koi8-r"
+Content-Transfer-Encoding: quoted-printable
+
+Test email message
+
+--_000_DU2PR05MB10686CE4BF46D312709A21CD5A38AADU2PR05MB10686eu_
+Content-Type: text/html; charset="koi8-r"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dkoi8-r">
+<style type=3D"text/css" style=3D"display:none;"> P {margin-top:0;margin-bo=
+ttom:0;} </style>
+</head>
+<body dir=3D"ltr">
+<div class=3D"elementToProof" style=3D"font-family: Aptos, Aptos_EmbeddedFo=
+nt, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; c=
+olor: rgb(0, 0, 0);">
+Test email message</div>
+</body>
+</html>
+
+--_000_DU2PR05MB10686CE4BF46D312709A21CD5A38AADU2PR05MB10686eu_--

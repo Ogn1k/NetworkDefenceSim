@@ -1,0 +1,62 @@
+Delivered-To: finn.parnishka.68@gmail.com
+Received: by 2002:a05:6a10:6d03:b0:5f1:29aa:3802 with SMTP id gq3csp2657132pxb;
+        Mon, 5 May 2025 15:18:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGJtcPesKCetHHRYL+KG+1/DRSFcTweAzzt2f+66YvfI1YAZmbUOzRrGY3AIPVVas3Aiewy
+X-Received: by 2002:a05:620a:43a5:b0:7b6:d273:9b4f with SMTP id af79cd13be357-7caf04e5cebmr228266285a.11.1746483485722;
+        Mon, 05 May 2025 15:18:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1746483485; cv=none;
+        d=google.com; s=arc-20240605;
+        b=iDinuEYxd9628j37zmFinOKwl61RcNh0emMC+jri+ckx4YodsKYHVMHw4Qe+GbdWjj
+         yRhUAHI/sOhqcldlDm0h7NVaXFmUqIzeZu8MfNtdWG7+1jYO6TXE0KQbPD0HfSATprfj
+         lxbDv1iD1O448xMNlGBz39qiYVhIo0/btbXlSlyP4rs/+nJLagiReRugWPximeh3VKBl
+         TLuzci3XtT89yMupSrse2UM62DcwFg9unnH8eOxQkREgXDTnVzmi72TS8ByOfpG+Qroi
+         PouavzsZQJuTVanPonEluUtawXvZG34K9BKY/1fc/TIdMSh8IHOhSYU4MnGeLT5qSh6L
+         bM+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:mime-version:message-id:reply-to:from
+         :date:subject:to;
+        bh=CaEn7dGBNa22DoCF7w85dOd1o+YC+yFh7EaY3X1HfTw=;
+        fh=joIxeKcQ5mgzby1dR5oiGkDXCWqD/sY9eQoe+9XK6WE=;
+        b=XqaboWDmnMvvcqfDerkQO/LYa3djm/dYIh3Vu8F0clCn0g+sNB4zoNxxJjUNt78UT0
+         OXow9GRfFlw4WWqyo9xN3cZEuyq86LA7aPdtg5WN7znhGZcADeV/Zo0kiqq6+HF83/DA
+         vds2gw98dL9kmgbaOLKJ6UHZOkYXcGQDyRGpw/reBITwocxht8U5HbFb9x5WMA8ipzGs
+         LsgQP4Vwx2lvU4kwWHdjv/pZ6HFZRYko7M2JT4W2sDpEkODxpQ5/8C9+nS/R3DI4BD8m
+         7Ltkq7KMc0edof1GVuI+w+4Cy4m24AwcHq/GZz3R9Dq3dcjULjOEgIInClFksXGed8rc
+         0GPA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of smnorte@vps18052.dreamhostps.com designates 208.113.150.198 as permitted sender) smtp.mailfrom=smnorte@vps18052.dreamhostps.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=cththemes.com
+Return-Path: <smnorte@vps18052.dreamhostps.com>
+Received: from vps18052.dreamhostps.com (vps18052.dreamhostps.com. [208.113.150.198])
+        by mx.google.com with ESMTPS id af79cd13be357-7cad23ba40fsi938515185a.6.2025.05.05.15.18.05
+        for <finn.parnishka.68@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 May 2025 15:18:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of smnorte@vps18052.dreamhostps.com designates 208.113.150.198 as permitted sender) client-ip=208.113.150.198;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of smnorte@vps18052.dreamhostps.com designates 208.113.150.198 as permitted sender) smtp.mailfrom=smnorte@vps18052.dreamhostps.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=cththemes.com
+Received: by vps18052.dreamhostps.com (Postfix, from userid 6138058)
+	id 4Zrwrs2x3wz3Xb5; Mon,  5 May 2025 15:18:05 -0700 (PDT)
+To: finn.parnishka.68@gmail.com
+Subject: TownHub Contact Form
+X-PHP-Originating-Script: 6138058:PHPMailer.php
+Date: Mon, 5 May 2025 22:18:05 +0000
+From: TownHub Theme <wordpress@cththemes.com>
+Reply-To: finn.parnishka.68@gmail.com
+Message-ID: <0PfW2n0F61s5uqfAtfO2rfpfrFJnk9f7jfNekP481c@smnorte.mx>
+X-Mailer: PHPMailer 6.6.5 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+From: HainkNaimi <finn.parnishka.68@gmail.com>
+Subject: Contact Form Subject
+
+Message Body:
+Поздравляем, у вас выигрышная комбинация билета ГосЛото совпала! Перейти к получению выигрыша: www.tinyurl.com/2899t4co#YJ9txs
+
+-- 
+This e-mail was sent from a contact form on TownHub (http://localhost:8888/homeradar)
+

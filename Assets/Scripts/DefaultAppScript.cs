@@ -3,9 +3,9 @@ using UnityEngine.EventSystems;
 
 public class DefaultAppScript : MonoBehaviour, IPointerDownHandler, IDragHandler
 {//, IBeginDragHandler, IEndDragHandler
-	[SerializeField] private RectTransform dragRectTransform;
-	[SerializeField] private Canvas canvas;
-	[SerializeField] private AppManager appManager;
+	[SerializeField] protected RectTransform dragRectTransform;
+	[SerializeField] protected Canvas canvas;
+	[SerializeField] protected AppManager appManager;
 
 	public void OnInstantiate()
 	{
@@ -29,7 +29,7 @@ public class DefaultAppScript : MonoBehaviour, IPointerDownHandler, IDragHandler
 		dragRectTransform.SetAsLastSibling();
 
 	}
-	public void CloseAppF()
+	public virtual void CloseAppF()
 	{
 		appManager.DeleteFromTaskbar(dragRectTransform.gameObject.name);
 		Destroy(dragRectTransform.gameObject);
