@@ -79,3 +79,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ff]igma/*
 /[Aa]ssets/[Ff]igmaImporter/*
 /[Aa]ssets/[Ff]igma*.*
+/Assets/FigmaImporter
+/Assets/FigmaImporter/Editor
+Assets/FigmaImporter/Editor/FigmaImporterSettings.asset
