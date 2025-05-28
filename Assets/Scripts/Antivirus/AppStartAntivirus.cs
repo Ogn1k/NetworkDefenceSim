@@ -23,6 +23,7 @@ public class AppStartAntivirus : AppStart
 		if (Resources.Load("AntivirusSave", typeof(AntivirusSaveObj)))
 		{
 			saveFile = Resources.Load<AntivirusSaveObj>("AntivirusSave");
+			saveFile.newButtons();
 			print("loaded");
 		}
 		else

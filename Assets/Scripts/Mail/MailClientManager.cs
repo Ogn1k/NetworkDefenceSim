@@ -39,7 +39,7 @@ public class MailClientManager : MonoBehaviour
 	{
 		instance = this;
 
-		string folderPath = Application.dataPath + "/Emails"; // Путь к папке с EML
+		string folderPath = Application.dataPath + "/StreamingAssets/Emails"; // Путь к папке с EML
 		loadedEmails = LoadAllEmlFromFolder(folderPath);
 
 		Debug.Log($"Загружено писем: {loadedEmails.Count}");
