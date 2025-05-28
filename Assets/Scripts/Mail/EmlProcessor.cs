@@ -1,14 +1,15 @@
 using Aspose.Email;
+using MimeKit;
 using System;
 using UnityEngine;
 
 public class EmlProcessor
 {
-	public MailMessage LoadEml(string filePath)
+	public MimeMessage LoadEml(string filePath)
 	{
 		try
 		{
-			MailMessage message = MailMessage.Load(filePath);
+			MimeMessage message = MimeMessage.Load(filePath);
 			return message;
 		}
 		catch (Exception ex)

@@ -1,4 +1,6 @@
 using Aspose.Email;
+using MimeKit;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,23 +12,34 @@ public class FullMailPrefabScript : MonoBehaviour
 	public string senderText;
 	public string titleText;
 	public string messageText;
+	public GameObject AttachmentHolder;
+	public GameObject AttachmentPrefab;
 
 	public TMP_Text sender;
 	public TMP_Text title;
 	public TMP_Text message;
 
 	public MailPrefabScript mailPrefabSc;
-	public MailMessage currentMail;
+	public MimeMessage currentMail;
 
 	public void ChangeMail()
 	{
 		senderText = currentMail.From.ToString();
 		titleText = currentMail.Subject.ToString();
-		messageText = currentMail.Body.ToString();
+		messageText = currentMail.TextBody.ToString();
 
 		sender.text = senderText;
 		title.text = titleText;
 		message.text = messageText;
+
+		if(currentMail.Attachments.Any())
+		{
+			for(int i = 0; i<currentMail.Attachments.Count(); i++) 
+			{
+				AttachmentHolder.SetActive(true);
+				Instantiate(AttachmentPrefab, AttachmentHolder.transform);
+			}
+		}
 	}
 
 	public void DeleteMail()

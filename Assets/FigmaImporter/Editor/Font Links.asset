@@ -15,3 +15,17 @@ MonoBehaviour:
   _fonts:
   - Name: LieberationSans
     Font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - Name: Inter
+    Font: {fileID: 11400000, guid: 61b340bdbc8e2d641b93854d62ede667, type: 2}
+  - Name: Inter
+    Font: {fileID: 11400000, guid: 15976f2b4e5a50b4e931d006d6f394bf, type: 2}
+  - Name: Inter-Bold
+    Font: {fileID: 11400000, guid: 204541beed275b74dbd3f266b0efb919, type: 2}
+  - Name: Inter-Medium
+    Font: {fileID: 11400000, guid: b051a87140b1483419e80ccc0d5a06ae, type: 2}
+  - Name: Manrope-Medium
+    Font: {fileID: 11400000, guid: 5c4cef382420e6742b3674c5b6484b3b, type: 2}
+  - Name: Manrope-Regular
+    Font: {fileID: 11400000, guid: 2b6c515cd27625f428db16649c1c382f, type: 2}
+  - Name: Manrope-Bold
+    Font: {fileID: 11400000, guid: 204541beed275b74dbd3f266b0efb919, type: 2}

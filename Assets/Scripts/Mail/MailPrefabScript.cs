@@ -1,4 +1,6 @@
 using Aspose.Email;
+using MimeKit;
+using System.Linq;
 using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
@@ -27,7 +29,9 @@ public class MailPrefabScript : MonoBehaviour
 	public TMP_Text previewTitle;
 	public TMP_Text previewMessage;
 
-    private MailMessage currentMail;
+    public GameObject attachmentIcon;
+
+    private MimeMessage currentMail;
 
     public GameObject fullMailPrefab;
     public Transform fullMailPrefabContext;
@@ -35,7 +39,7 @@ public class MailPrefabScript : MonoBehaviour
     private GameObject fullMail;
 
 
-	public void SetMail(MailMessage mail)
+	public void SetMail(MimeMessage mail)
     { currentMail = mail; }
 
 	public void ChangeMail()
@@ -44,7 +48,12 @@ public class MailPrefabScript : MonoBehaviour
 
 		senderText = currentMail.From.ToString().Truncate(10);
         previewTitleText = currentMail.Subject.ToString().Truncate(10);
-        previewMessageText = currentMail.Body.ToString().Truncate(10);
+        previewMessageText = currentMail.TextBody.ToString().Truncate(10);
+
+        if (currentMail.Attachments.Any()) 
+        {
+            attachmentIcon.SetActive(true);
+		}
 
         sender.text = senderText;
         previewTitle.text = previewTitleText;

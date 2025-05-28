@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata minClientVersion="2.12">
+    <id>MimeKit</id>
+    <version>4.12.0</version>
+    <title>MimeKit</title>
+    <authors>Jeffrey Stedfast</authors>
+    <owners>Jeffrey Stedfast</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>icons\mimekit-50.png</icon>
+    <readme>docs\README.md</readme>
+    <projectUrl>https://www.mimekit.net/</projectUrl>
+    <description>MimeKit is an Open Source library for creating and parsing MIME, S/MIME and PGP messages on desktop and mobile platforms. It also supports parsing of Unix mbox files.
+
+      Unlike any other .NET MIME parser, MimeKit's parser does not need to parse string input nor does it use a TextReader. Instead, it parses raw byte streams, thus allowing it to better support undeclared 8bit text in headers as well as message bodies. It also means that MimeKit's parser is significantly faster than other .NET MIME parsers.
+
+      MimeKit's parser also uses a real tokenizer when parsing the headers rather than regex or string.Split() like most other .NET MIME parsers. This means that MimeKit is much more RFC-compliant than any other .NET MIME parser out there, including the commercial implementations.
+
+      In addition to having a far superior parser implementation, MimeKit's object tree is not a derivative of System.Net.Mail objects and thus does not suffer from System.Net.Mail's limitations.
+
+      API documentation can be found on the web at http://www.mimekit.net/docs
+
+      For those that need SMTP, POP3 or IMAP support, check out https://github.com/jstedfast/MailKit</description>
+    <summary>An Open Source library for creating and parsing MIME, S/MIME and PGP messages on desktop and mobile platforms.</summary>
+    <releaseNotes>* Removed CTRL characters from the list of allowed domain characters.
+* Fixed a bug in the address list parser in Strict mode that allowed 2 addresses to be separated by whitespace instead of requiring a comma.
+* Added a new MimeAnonymizer class that can be used to anonymize MimeMessages by x-ing out non-syntactically relevant information.
+* Fixed TryParse methods to not throw ArgumentExceptions. (issue #1158)
+* Fixed a bug in MimeReader that used the buffer offset instead of the stream offset to check if the stream position was beyond the byte offset specified by a Content-Length header when parsing UNIX mbox files.
+* Fixed a long-standing bug in MimeParser (which also existed in MimeReader) where it would encounter a buffering bug when parsing some Mbox files (typically multi-gigabyte). (issue #991)
+* Fixed AttachmentCollection.Add/AddAsync methods to dispose the MimePart it is creating if loading content fails from the stream fails.
+* Added leaveOpen parameters for HtmlWriter .ctors. (issue #1159)
+* Fixed parsing when ParserOptions.AllowUnquotedCommasInAddresses = false. This used to incorrectly allow unquoted commas in address Display Names if the comma followed at least 2 words.</releaseNotes>
+    <copyright>.NET Foundation and Contributors</copyright>
+    <language>en-US</language>
+    <tags>mime encryption arc dkim security smime s/mime openpgp pgp mbox mail email parser tnef</tags>
+    <repository type="git" url="https://github.com/jstedfast/MimeKit" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="System.Buffers" version="4.6.0" />
+        <dependency id="System.Memory" version="4.6.0" />
+        <dependency id="BouncyCastle.Cryptography" version="2.5.1" />
+      </group>
+      <group targetFramework=".NETFramework4.7">
+        <dependency id="System.Buffers" version="4.6.0" />
+        <dependency id="System.Memory" version="4.6.0" />
+        <dependency id="BouncyCastle.Cryptography" version="2.5.1" />
+      </group>
+      <group targetFramework=".NETFramework4.8">
+        <dependency id="System.Buffers" version="4.6.0" />
+        <dependency id="System.Memory" version="4.6.0" />
+        <dependency id="BouncyCastle.Cryptography" version="2.5.1" />
+      </group>
+      <group targetFramework="net8.0">
+        <dependency id="System.Security.Cryptography.Pkcs" version="8.0.1" />
+        <dependency id="BouncyCastle.Cryptography" version="2.5.1" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Security.Cryptography.Pkcs" version="8.0.1" />
+        <dependency id="System.Text.Encoding.CodePages" version="8.0.0" />
+        <dependency id="System.Data.DataSetExtensions" version="4.5.0" />
+        <dependency id="System.Buffers" version="4.6.0" />
+        <dependency id="System.Memory" version="4.6.0" />
+        <dependency id="BouncyCastle.Cryptography" version="2.5.1" />
+      </group>
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="System.Security.Cryptography.Pkcs" version="8.0.1" />
+        <dependency id="System.Text.Encoding.CodePages" version="8.0.0" />
+        <dependency id="BouncyCastle.Cryptography" version="2.5.1" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.Data.DataSetExtensions" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.Security" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework=".NETFramework4.6.2" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.7" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.7" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework=".NETFramework4.7" />
+      <frameworkAssembly assemblyName="System.Data.DataSetExtensions" targetFramework=".NETFramework4.7" />
+      <frameworkAssembly assemblyName="System.Security" targetFramework=".NETFramework4.7" />
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework=".NETFramework4.7" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.8" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.8" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework=".NETFramework4.8" />
+      <frameworkAssembly assemblyName="System.Data.DataSetExtensions" targetFramework=".NETFramework4.8" />
+      <frameworkAssembly assemblyName="System.Security" targetFramework=".NETFramework4.8" />
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework=".NETFramework4.8" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

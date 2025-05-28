@@ -1,4 +1,5 @@
 using Aspose.Email;
+using MimeKit;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -10,6 +11,7 @@ public class NotificationManager : MonoBehaviour
 	public GameObject infoPanelContent;
 
 	private MailMessageHandler currentMailClient;
+	public MailBackground currentMailBackground;
 
 	private List<string> notifications = new List<string>();
 
@@ -25,7 +27,19 @@ public class NotificationManager : MonoBehaviour
 			currentMailClient.OnMailReceived += ShowNotification;
 	}
 
-	private void ShowNotification(MailMessage message)
+	public void RegisterMailBackground(MailBackground mailBackground)
+	{
+		// Отписываемся от предыдущего клиента, если он был
+		if (currentMailBackground != null)
+			currentMailBackground.OnMailReceived -= ShowNotification;
+
+		currentMailBackground = mailBackground;
+
+		if (currentMailBackground != null)
+			currentMailBackground.OnMailReceived += ShowNotification;
+	}
+
+	private void ShowNotification(MimeMessage message)
 	{
 		//Debug.Log("Уведомление: " + message.Subject);
 		// Здесь ваша логика отображения уведомления

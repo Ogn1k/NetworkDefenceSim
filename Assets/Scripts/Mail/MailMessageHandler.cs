@@ -1,14 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using Aspose.Email;
+using MimeKit;
 using UnityEngine;
 public class MailMessageHandler : MonoBehaviour
 {
-	public List<string> mailMessagesSTRlist = new List<string>();
-	public List<MailMessage> mailMessages = new List<MailMessage>();
-	public List<MailMessage> MailMessagesDeleted = new List<MailMessage>();
+	public MailSaveObj mailBoxSave;
+	//public List<string> mailMessagesSTRlist = new List<string>();
+	//public List<MailMessage> mailMessages = new List<MailMessage>();
+	//public List<MailMessage> MailMessagesDeleted = new List<MailMessage>();
 	public MailClientManager mailClientManager;
 	public MailSaveController mailSaveController;
 
@@ -16,7 +19,9 @@ public class MailMessageHandler : MonoBehaviour
 	public Transform mailPrefabContext;
 	public Transform fullMailPrefabContext;
 
-	public event Action<MailMessage> OnMailReceived;
+	public List<MimeMessage> messages = new List<MimeMessage>();
+
+	public event Action<MimeMessage> OnMailReceived;
 
 	private void Start()
 	{
@@ -24,42 +29,43 @@ public class MailMessageHandler : MonoBehaviour
 		//mailMessages = new List<MailMessage>();
 		//MailMessagesDeleted = new List<MailMessage>();
 		mailSaveController.LoadSave();
+		mailBoxSave = mailSaveController.saveFile;
 		UpdateMailBox();
 	}
 
 	public void SendMail(int id)
 	{
-		MailMessage mail = GetMail(id);
+		MimeMessage mail = GetMail(id);
 
-		if (mailMessages == null)
-		{ 
-			mailMessagesSTRlist = new List<string>();
-			mailMessages = new List<MailMessage>();
-			MailMessagesDeleted = new List<MailMessage>();
+		if (mailBoxSave == null)
+		{
+			mailBoxSave = mailSaveController.saveFile;
 		}
-		mailMessages.Add(mail);
-		mailMessagesSTRlist.Add(mail.Subject);
+		//print(mail.From);
+		mailBoxSave.savedMails.Add(mail);
+		mailBoxSave.savedMailsSTR.Add(mail.Subject);
 		InstantiateEmail(mail);
 		OnMailReceived?.Invoke(mail);
 	}
 
-	public void InstantiateEmail(MailMessage mail)
+	public void InstantiateEmail(MimeMessage mail)
 	{
 		GameObject mailPreview = Instantiate(mailPrefab, mailPrefabContext);
 		MailPrefabScript mailPrefabSc = mailPreview.GetComponent<MailPrefabScript>();
 		mailPrefabSc.mailBox = this;
 		mailPrefabSc.SetMail(mail);
 		mailPrefabSc.ChangeMail();
+		messages.Add(mail);
 	}
 
-	public MailMessage GetMail(int id) 
+	public MimeMessage GetMail(int id) 
 	{
 		return mailClientManager.instance.loadedEmails.ElementAt(id);
 	}
 
-	public MailMessage GetLastMail()
+	public MimeMessage GetLastMail()
 	{
-		return mailMessages.Last();
+		return mailBoxSave.savedMails.Last();
 	}
 	System.Random r = new System.Random();
 	public void SendRandomMail()
@@ -105,21 +111,22 @@ public class MailMessageHandler : MonoBehaviour
 	}
 
 
-	public void DeleteMessage(MailMessage mail)
+	public void DeleteMessage(MimeMessage mail)
 	{
 		//MailMessagesDeleted.Add(mail);
-		mailMessages.Remove(mail);
-		mailMessagesSTRlist.Remove(mail.Subject);
+		mailBoxSave.savedMails.Remove(mail);
+		mailBoxSave.savedDeletedMailsSTR.Remove(mail.Subject);
 	}
 
 	public void UpdateMailBox()
 	{
-		if (mailMessages == null)
+		if (mailBoxSave == null)
 			return;
 
-		foreach (MailMessage mail in mailMessages) 
+		foreach (MimeMessage mail in mailBoxSave.savedMails) 
 		{
-			InstantiateEmail(mail);
+			if(!messages.Contains(mail))
+				InstantiateEmail(mail);
 		}
 	}
 

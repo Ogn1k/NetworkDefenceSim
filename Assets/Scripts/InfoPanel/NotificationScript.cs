@@ -15,7 +15,7 @@ public class NotificationScript : MonoBehaviour
     {
 		Transform infoPanelContent = GameObject.Find("InfoPanel").transform.Find("Content");
 
-		transform.parent = infoPanelContent;
+		transform.SetParent(infoPanelContent);	
 	}
 
 	private void Update()
